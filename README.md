@@ -1,2 +1,4 @@
-# LeetCode
-Learning from @sysuzhyupeng, solving Leetcode by Javascript
+使用JavaScript解决leetCode问题
+==
+![image]()
+
