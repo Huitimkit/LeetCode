@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Two Sum</title>
+</head>
+<body>
+    <!--
+    Given an array of integers, return indices of the two numbers such that they add up to a specific target.
+
+    You may assume that each input would have exactly one solution, and you may not use the same element twice.   
+
+    Example:   
+    
+    Given nums = [2, 7, 11, 15], target = 9,
+
+    Because nums[0] + nums[1] = 2 + 7 = 9,
+    return [0, 1].
+    -->
+    <script>
+        /**
+        * @param {number[]} nums
+        * @param {number} target
+        * @return {number[]}
+        */
+        // 我相信大家都能想到的答案如下：
+        var twoSum = function(nums, target) {
+            var result = []
+            for(var i = 0; i < nums.length; i++) {
+                if(nums[i] > target) {
+                    continue
+                }
+                var temp = target - nums[i]
+                for(var j = i + 1; j < nums.length; j++) {
+                    if(temp == nums[j]) {
+                        result[0] = i
+                        result[1] = j
+                        return result
+                    }
+                }
+            }
+        };  
+
+        // 但我跟大家一样，图样图森破了，幸好前几天看到了小胡子哥也做了同一道算法题，感觉发现了新大陆
+        var twoSum = function(nums, tareget) {
+            var result = []
+            var map = {}
+            for(var i = 0; i < nums.length; i++) {
+                var temp = tareget - nums[i]
+                // 通过判断是否已经存在这样属性，来判断与当前的数值相加是否等于target值
+                if(map[temp] !== undefined) {
+                    result[0] = parseInt(map[temp], 10) 
+                    result[1] = i
+                    return result
+                }
+                // 把nums的第i个值作为map的属性，并存储当前的索引i    
+                map[nums[i]] = i
+                
+            }
+
+            return -1
+
+        }  
+
+        // challenge success
+    </script>
+</body>
+</html>
