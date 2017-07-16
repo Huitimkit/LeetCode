@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Two Sum</title>
+</head>
+<body>
+    <script>
+        /*
+        Given a sorted array, remove the duplicates in place such that each element appear only once and return the new length.
+
+        Do not allocate extra space for another array, you must do this in place with constant memory.
+
+        For example,
+        Given input array nums = [1,1,2],
+
+        Your function should return length = 2, with the first two elements of nums being 1 and 2 respectively. It doesn't matter what you leave beyond the new length.
+
+        */
+
+        // 既然已知条件是，当前数组是一个有序数组
+        /**
+        * @param {number[]} nums
+        * @return {number}
+        */
+        var removeDuplicates = function(nums) {
+            if(nums.length == 0) return 0
+            var count = 0
+            for(var i = 1; i < nums.length; i++) {
+                if(nums[i] != nums[count]) {
+                    count++
+                    nums[count] = nums[i]
+                }
+            } 
+
+            return count + 1   
+        };
+
+        var removeDuplicates = function(nums) {
+            if(nums.length == 0) return 0
+            var count = 0
+            for(var i = 0; i < nums.length; i++) {
+                // 第二个判断是，确保运行到nums的最后一个元素就停止
+                if(nums[i + 1] !== undefined && nums[i] != nums[i + 1]) {
+                    count++
+                }
+            }
+            return count + 1
+        }
+        // 但是对比上一种解决方案，则多了一次循环，上一种是从1开始的，只是多了一步操作
+
+        // challenge success
+    </script>   
+</body>
+</html>
