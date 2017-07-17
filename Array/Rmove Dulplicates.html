@@ -38,19 +38,6 @@
             return count + 1   
         };
 
-        var removeDuplicates = function(nums) {
-            if(nums.length == 0) return 0
-            var count = 0
-            for(var i = 0; i < nums.length; i++) {
-                // 第二个判断是，确保运行到nums的最后一个元素就停止
-                if(nums[i + 1] !== undefined && nums[i] != nums[i + 1]) {
-                    count++
-                }
-            }
-            return count + 1
-        }
-        // 但是对比上一种解决方案，则多了一次循环，上一种是从1开始的，只是多了一步操作
-
         // challenge success
     </script>   
 </body>
