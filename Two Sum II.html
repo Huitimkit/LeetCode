@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <script>
+            /*
+            Given an array of integers that is already sorted in ascending order, find two numbers such that they add up to a specific target number.
+
+            The function twoSum should return indices of the two numbers such that they add up to the target, where index1 must be less than index2. Please note that your returned answers (both index1 and index2) are not zero-based.
+
+            You may assume that each input would have exactly one solution and you may not use the same element twice.
+
+            Input: numbers={2, 7, 11, 15}, target=9
+            Output: index1=1, index2=2
+
+            */
+
+            /**
+            * @param {number[]} numbers
+            * @param {number} target
+            * @return {number[]}
+            */
+            var twoSum = function(nums, tareget) {
+                var result = []
+                var map = {}
+                for(var i = 0; i < nums.length; i++) {
+                    var temp = tareget - nums[i]
+                    // 通过判断是否已经存在这样属性，来判断与当前的数值相加是否等于target值
+                    if(map[temp] !== undefined) {
+                        result[0] = parseInt(map[temp], 10) + 1
+                        result[1] = i + 1
+                        return result
+                    }
+                    // 把nums的第i个值作为map的属性，并存储当前的索引i    
+                    map[nums[i]] = i
+                    
+                }
+
+                return -1
+
+            } 
+        </script>
+    </body>
+</html>
