@@ -28,6 +28,33 @@
 
 			return profit;  
 		};
+
+
+		var maxProfit2 = function(prices) {
+
+		    var profit  = 0
+		    var low     = prices[0]     // 初始最低值
+		    for(var i = 1; i < prices.length; i++) {
+		        
+		        var price = prices[i]
+		        
+		        // 置换最低值
+		        if (price < low ) {
+		            low = price
+		            continue
+		        }
+		        
+
+		        if( price < prices[i+1]) {
+		            continue
+		        }
+		        
+		        // 累加最低值
+		        profit += price - low
+		        low = price
+		    }
+		    return profit
+		};
 	</script>
 </body>
 </html>
