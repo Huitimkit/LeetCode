@@ -21,17 +21,11 @@
             * @param {number} k
             * @return {void} Do not return anything, modify nums in-place instead.
             */
-            // 不清楚有没有理解错题目意思, 通过新建一个数组就，就可以很方便的完成需求
             var rotate = function(nums, k) {
-                var arr = [];
-                for(var i = k + 1; i < nums.length; i++) {
-                    arr.push(nums[i])
+                var len = nums.length 
+                for(var i = 0; i < k; i++) {
+                    nums.unshift(nums.splice(-1)[0])
                 }
-                
-                for(var j = 0; j < k + 1; j++) {
-                    arr.push(nums[j])
-                }
-                nums = arr
             };
         </script>
     </body>
