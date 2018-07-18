@@ -22,20 +22,18 @@
 
         // 既然已知条件是，当前数组是一个有序数组
         /**
-        * @param {number[]} nums
-        * @return {number}
-        */
+         * @param {number[]} nums
+         * @return {number}
+         */
         var removeDuplicates = function(nums) {
-            if(nums.length == 0) return 0
-            var count = 0
-            for(var i = 1; i < nums.length; i++) {
-                if(nums[i] != nums[count]) {
-                    count++
-                    nums[count] = nums[i]
+            var len = nums.length -1
+            for(var i = len; i > 0; i--) {
+                var j = i - 1
+                if(nums[i] == nums[j]) {
+                    nums.splice(i, 1)   
                 }
-            } 
-
-            return count + 1   
+            }
+            return nums.length
         };
 
         // challenge success
